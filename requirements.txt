@@ -1,0 +1,7 @@
+boto3
+minio
+psycopg2-binary
+sqlalchemy
+requests
+pandas
+dotenv
