@@ -1,0 +1,6 @@
+name: etl
+
+include:
+  - path: ./docker-compose.base.yml
+  - path: ./docker-compose.airflow.yml
+  - path: ./docker-compose.main.yml

@@ -1,0 +1,7 @@
+networks:
+  pepline:
+    driver: bridge
+
+volumes:
+  minio_data:
+  postgres_data:
