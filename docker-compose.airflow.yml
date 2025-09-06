@@ -99,7 +99,7 @@ services:
       start_period: 5s
     restart: always
     networks:
-      - pepline
+      - pipeline
   airflow-apiserver:
     <<: *airflow-common
     command: api-server
@@ -117,7 +117,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - pepline
+      - pipeline
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
@@ -133,7 +133,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - pepline
+      - pipeline
   airflow-dag-processor:
     <<: *airflow-common
     command: dag-processor
@@ -149,7 +149,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - pepline
+      - pipeline
   airflow-triggerer:
     <<: *airflow-common
     command: triggerer
@@ -165,7 +165,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
     networks:
-      - pepline
+      - pipeline
   airflow-init:
     <<: *airflow-common
     entrypoint: /bin/bash
@@ -258,7 +258,7 @@ services:
       _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
     networks:
-      - pepline
+      - pipeline
   airflow-cli:
     <<: *airflow-common
     profiles:
@@ -274,6 +274,6 @@ services:
     depends_on:
       <<: *airflow-common-depends-on
     networks:
-      - pepline
+      - pipeline
 volumes:
   postgres-db-volume:

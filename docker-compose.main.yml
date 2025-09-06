@@ -13,7 +13,7 @@ services:
       - ./data/minio_data:/data
     command: server /data --console-address ":9001"
     networks:
-      - pepline
+      - pipeline
 
   postgres_db:
     image: postgres:13
@@ -28,7 +28,7 @@ services:
     volumes:
       - ./data/postgres_data:/var/lib/postgresql/data
     networks:
-      - pepline
+      - pipeline
   
   postgres-metabase:
     image: postgres:latest
@@ -42,7 +42,7 @@ services:
     volumes:
       - ./data/postgres_metabase_data:/var/lib/postgresql/data
     networks:
-      - pepline
+      - pipeline
   metabase:
     image: metabase/metabase
     container_name: metabase
@@ -58,4 +58,4 @@ services:
     depends_on:
       - postgres-metabase
     networks:
-      - pepline
+      - pipeline
